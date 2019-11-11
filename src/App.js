@@ -1,3 +1,6 @@
+  
+//npm i -S react-router-dom
+
 import React from 'react';
 import './App.css';
 import {
@@ -8,12 +11,12 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-import PathfindingVisualizer from './PathfindingVisualizer/PathfindingVisualizer';
 
 var __html = require('./homepage.html');
 var template = { __html: __html };
 
 
+import PathfindingVisualizer from './PathfindingVisualizer/PathfindingVisualizer';
 
 
 function App() {
@@ -21,15 +24,14 @@ function App() {
 	<Router>
 		<Switch>
 			// Open the homepage
-			
-
-			<Route path="/visualizer" render={props => 
-    				(<div className="App">
-      					<PathfindingVisualizer/> 
-    				</div>) } >
-			</Route>
-	  <Route path="/">
+			<Route path="/">
 				<div dangerouslySetInnerHTML={template} />
+			</Route>
+
+			<Route path="/visualizer">
+    				<div className="App">
+      					<PathfindingVisualizer/>
+    				</div>
 			</Route>
 		</Switch>
 	</Router>
